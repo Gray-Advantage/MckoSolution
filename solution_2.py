@@ -1,6 +1,6 @@
 from datetime import datetime
 
-IN_FILE_NAME = "scientist.txt"
+IN_FILE_NAME = "scientist.txt"  # Имя входного файла
 
 with open(IN_FILE_NAME, encoding="utf8") as in_file:
     title, *lines = [elem.rstrip().split("#") for elem in in_file.readlines()]

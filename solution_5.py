@@ -1,3 +1,5 @@
+from random import sample
+
 IN_FILE_NAME = "scientist.txt"  # Имя входного файла
 OUT_FILE_NAME = "scientist_with_hash.csv"  # Имя выходного файла
 
@@ -8,7 +10,14 @@ def create_hash(string):
     :return: str
     """
 
-    return hash(string)
+    a_1 = sample(range(0, 1024), 1024)
+    lst = []
+    for elem in string:
+        i = ord(elem) % 1024
+        lst.append(a_1[i])
+    res = sum(lst) % 2048
+
+    return res
 
 
 with open(IN_FILE_NAME, encoding="utf8") as in_file:

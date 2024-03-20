@@ -10,14 +10,8 @@ def create_hash(string):
     :return: str
     """
 
-    a_1 = sample(range(0, 1024), 1024)
-    lst = []
-    for elem in string:
-        i = ord(elem) % 1024
-        lst.append(a_1[i])
-    res = sum(lst) % 2048
-
-    return res
+    lst = sample(range(0, 1024), 1024)
+    return sum([lst[ord(elem) % 1024] for elem in string]) % 2048
 
 
 with open(IN_FILE_NAME, encoding="utf8") as in_file:
